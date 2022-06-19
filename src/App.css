@@ -15,31 +15,28 @@ body {
 .app {
     display: flex;
     justify-content: space-between;
+    align-items: baseline;
+    flex-flow: wrap;
 }
-button {
-    border: none;
-    background: none;
-}
-._icon {
-    cursor: pointer;
-}
-svg.save_icon:hover path{
-    fill: #53CBF1;
-}
-svg.edit_icon:hover path{
-    stroke: #53CBF1;
-}
-svg.close_icon:hover rect,
-svg.delete_icon:hover path,
-svg.delete_icon:hover rect {
-    fill: #CA4C4C;
 
-}
+
+
 .data-comp {
     background-color: #313131;
     border-radius: 20px;
     min-height: 283px;
     width: 679px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-bottom: 97px;
+}
+.colorpicker-comp {
+    background-color: #313131;
+    border-radius: 20px;
+    height: 645px;
+    width: 320px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -52,6 +49,12 @@ svg.delete_icon:hover rect {
     display: flex;
     align-items: center;
     margin-bottom: 25px;
+}
+.colorpicker-comp__nav {
+    display: flex;
+    flex-direction: column;
+    width: inherit;
+    padding-top: 20px;
 }
 .data-comp__title {
     color: #fff;
@@ -80,6 +83,10 @@ tr > * {
     position: absolute;
     bottom: 32px; 
 }
+.colorpicker-comp__add-button {
+    position: absolute;
+    bottom: 32px;
+}
 .add-button {
     width: 220px;
     height: 35px;
@@ -91,6 +98,9 @@ tr > * {
     border: 1px solid #53CBF1;
     border-radius: 100px;
     cursor: pointer;
+}
+.add-button.add-button_colorpicker {
+    bottom: 14px;
 }    
 .add-button:hover {
     background: #53CBF1;
@@ -112,4 +122,153 @@ td p {
 }
 td > ._icon {
     margin-left: 48px;
+}
+button {
+    border: none;
+    background: none;
+}
+._icon {
+    cursor: pointer;
+}
+svg.save_icon:hover path{
+    fill: #53CBF1;
+}
+svg.edit_icon:hover path{
+    stroke: #53CBF1;
+}
+svg.close_icon:hover rect,
+svg.delete_icon:hover path,
+svg.delete_icon:hover rect {
+    fill: #CA4C4C;
+
+}
+
+.nav-cotainer {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+    height: 146px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.nav-cotainer__title {
+    margin-bottom: 27px;
+}
+.nav-cotainer__title h2 {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+}
+label {
+    width: 280px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+}
+label:not(:last-child) {
+    margin-bottom: 17px;
+}
+label:not(:first-child) {
+    align-items: flex-start;
+}
+label p{
+    margin-top: 10px;
+    color: #A0A0A0;
+    font-size: 12px;
+    line-height: 20px;
+    font-weight: 700;
+}
+label input {
+    background: #424242;
+    color: #bfbfbf;
+    height: 40px;
+    width:175px;
+    padding-left: 15px;
+    border: 1px solid #8d8d8d;
+    border-radius: 6px;
+}
+
+label input::placeholder {
+    color: #bfbfbf;
+}
+.label__select-box {
+    padding-left: 105px;
+}
+.select-box {
+    display: flex;
+    width: 175px;
+    flex-direction: column;
+}
+
+.select-box .options-container {
+    margin-top: -57px;
+    background: #424242;
+    color: #bfbfbf;
+    max-height: 0;
+    opacity: 0;
+    width: 100%;
+    transition: all 0.45s;
+    border: 1px solid #8d8d8d;
+    border-radius: 6px;
+    overflow: hidden;
+}
+
+.selected {
+    background: #424242;
+    color: #bfbfbf;
+    height: 40px;
+    width:175px;
+    padding-left: 15px;
+    border: 1px solid #8d8d8d;
+    border-radius: 6px;
+    position: relative;
+    z-index: 1;
+}
+
+.selected::after {
+    content: "";
+    background: url("./image/Dropdown_arrow_icon.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    height: 100%;
+    width: 25px;
+    top: 7px;
+    right: 5px;
+    transition: all 0.4s;
+}
+
+.select-box .options-container.active {
+    max-height: 162px;
+    overflow-y: scroll;
+    opacity: 1;
+    z-index: 2;
+}
+
+.select-box .options-container::-webkit-scrollbar {
+    width: 0px;
+    background: #424242;
+}
+
+.option,
+.selected {
+    height: 40px;
+    padding: 12px 11px;
+    cursor: pointer;
+}
+label.option {
+    margin-bottom: 0;
+}
+
+.select-box .option:hover {
+    background: #505050;
+}
+
+.select-box label {
+    cursor: pointer;
+}
+
+.radio {
+    display: none;
 }
