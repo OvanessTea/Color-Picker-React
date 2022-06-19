@@ -1,38 +1,115 @@
-.App {
-  text-align: center;
+* {
+    margin: 0;
+    padding: 0;
+    font-family: Lato, sans-serif;
+    box-sizing: border-box;
+}
+*:focus {
+    outline: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+    padding: 50px;
+    background-color: #E5E5E5;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.app {
+    display: flex;
+    justify-content: space-between;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+button {
+    border: none;
+    background: none;
 }
-
-.App-link {
-  color: #61dafb;
+._icon {
+    cursor: pointer;
 }
+svg.save_icon:hover path{
+    fill: #53CBF1;
+}
+svg.edit_icon:hover path{
+    stroke: #53CBF1;
+}
+svg.close_icon:hover rect,
+svg.delete_icon:hover path,
+svg.delete_icon:hover rect {
+    fill: #CA4C4C;
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+}
+.data-comp {
+    background-color: #313131;
+    border-radius: 20px;
+    min-height: 283px;
+    width: 679px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    padding-bottom: 97px;
+}
+.data-comp__nav {
+    padding-top: 20px;
+    margin-left: 230px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+.data-comp__title {
+    color: #fff;
+    font-size: 18px;
+    font-weight: 600;
+    margin-right: 161px;
+}
+table {
+    border-collapse: collapse;
+}
+table, td, th {
+    border: 1px solid #313131;
+    background-color: #424242;
+}
+tr:nth-child(1)  {
+    width: 90px;
+    font-size: 18px;
+    font-weight: 600;
+    color:#fff;
+    
+}
+tr > * {
+    height: 54px;
+}
+.data-comp__add-button {
+    position: absolute;
+    bottom: 32px; 
+}
+.add-button {
+    width: 220px;
+    height: 35px;
+    color: #fff;
+    font-size: 12px;
+    line-height: 14.4px;
+    font-weight: 700;  
+    background: #313131;
+    border: 1px solid #53CBF1;
+    border-radius: 100px;
+    cursor: pointer;
+}    
+.add-button:hover {
+    background: #53CBF1;
+    transition: all ease 0.3s;
+}
+td {
+    color: #BFBFBF;
+    font-size: 11px;
+    line-height: 15px;
+}
+td p {
+    max-width: 64px;
+    margin-left: 15px;
+}
+.color_div {
+    height:41px; 
+    width:41px; 
+    margin-left:25px;
+}
+td > ._icon {
+    margin-left: 48px;
 }
