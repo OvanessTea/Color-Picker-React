@@ -1,12 +1,30 @@
 import './App.css';
+import React, {useState, useEffect} from 'react';
 import {DataTableList} from "./components/DataTableList";
-import {ColorPicker} from "./components/ColorPicker";
+import {ColorPickerFrame} from "./components/ColorPickerFrame";
+import { ContextProvider } from "./context";
 
 function App() {
+  const [ showColorPickerFrame, setShowColorPickerFrame ] = useState(false);
+
+  const showColoPicker = () => {
+    setShowColorPickerFrame(true);
+  }
+  const hideColoPicker = () => {
+    setShowColorPickerFrame(false);
+  }
+
+  useEffect(() => {
+
+  }, [showColorPickerFrame])
+  
+
   return (
     <div className="app">
-      <DataTableList/>
-      <ColorPicker/>
+      <ContextProvider>
+        <DataTableList showColoPicker={showColoPicker}/>
+        {showColorPickerFrame ? <ColorPickerFrame hideColoPicker={hideColoPicker}/> : null}
+      </ContextProvider>
     </div>
   );
 }

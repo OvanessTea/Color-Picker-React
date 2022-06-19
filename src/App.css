@@ -272,3 +272,103 @@ label.option {
 .radio {
     display: none;
 }
+
+
+*:focus {
+    outline: none;
+  }
+  
+  .colorPicker__container {
+    height: 380px;
+    width: 245px;
+    background: #424242;
+    
+    padding: 7px 5px 0;
+    border: 1px solid #5f5f5f;
+    border-radius: 5px;
+  }
+  :host, svg {
+    display: block;
+    
+  }
+  .pickerGradient {
+    pointer-events: none;
+  }
+  section, label {
+    display: flex;
+  }
+  section {
+    justify-content: space-between;
+    width: 200px;
+    margin-top: 10px;
+  }
+  section label {
+    border: 1px solid #5f5f5f;
+    border-radius: 3px;
+  }
+  section#hex label {
+    border: none;
+  }
+  section#usualColors {
+    width: 100%;
+    justify-content: start;
+    flex-wrap: wrap;
+    padding: 0px 10px;
+  }
+  section#usualColors div:not(:last-child) {
+    margin-right: 15px;
+    margin-bottom: 10px;
+  }
+  attr, input {
+    
+    color: #bdbdbd;
+    text-align: start;
+    font-size: 12px;
+    padding: 5px 0px 5px 8px;
+  }
+  attr {
+    width: 17px;
+  }
+  label:not(:last-child) {
+    margin-right: 18px;
+  }
+  
+  attr.hex_attr {
+    border: 1px solid #5f5f5f;
+    border-radius: 3px;
+    width: 59px;
+    margin-right: 7px;
+  }
+  input.hex_attr {
+    border: 1px solid #5f5f5f;
+    border-radius: 3px;
+    background: inherit;
+    width: 80px;
+    margin-right: 5px;
+    padding-left: 7px;
+  }
+  [type=number] {
+    border: none;
+    width: 25px;
+    background: inherit;
+    text-align: end;
+    padding-right: 10px;
+  }
+  input[type=number]::-webkit-inner-spin-button, 
+  input[type=number]::-webkit-outer-spin-button { 
+      -webkit-appearance: none;
+      -moz-appearance: none;
+      appearance: none;
+      margin: 0; 
+  }
+  p {
+    font-size: 12px;
+    color: #bdbdbd;
+    margin: 5px 10px;
+  }
+  #currentColor, .exampleColor {
+    border-radius: 4px;
+    height: 25px;
+    width: 25px;
+    background: #fff;
+  }

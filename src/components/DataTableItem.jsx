@@ -1,7 +1,10 @@
-import React from 'react'
+import React, {useContext} from 'react';
+import {ColorPickerContext} from "../context";
 
 const DataTableItem = (props) => {
-    const {name, type, color, index, removeColor = Function.prototype} = props;
+    const {name, type, color, item, index} = props;
+
+    const {removeColor} = useContext(ColorPickerContext)
     return (
         <tr className='item'>  
             <td className='item__colomn item__preview'><div className='color_div' style={{background: color}}></div></td>
@@ -19,7 +22,7 @@ const DataTableItem = (props) => {
                 </button>
             </td>
             <td className='item__colomn'>
-                <button id='delete_btn' className='_icon' onClick={() => removeColor(index)}>
+                <button id='delete_btn' className='_icon' onClick={() => {removeColor(item)}}>
                     <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg' className='delete_icon'>
                         <path fillRule='evenodd' clipRule='evenodd' d='M15 4H4L5.26923 16H13.7308L15 4ZM13.8887 5H5.11135L6.16904 15H12.831L13.8887 5Z' fill='#8D8D8D'/>
                         <rect x='4' y='3' width='11' height='2' fill='#8D8D8D'/>
