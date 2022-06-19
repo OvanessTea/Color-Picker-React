@@ -1,5 +1,5 @@
 import React, {useState, useEffect, useContext} from 'react';
-import {ColorPicker} from "./ColorPicker";
+import {Colorpicker} from './color-picker'
 import {ColorPickerContext} from "../context";
 
 export const ColorPickerFrame = (props) => {
@@ -8,6 +8,7 @@ export const ColorPickerFrame = (props) => {
     const [selected, setSelected] = useState("Main");
     const [isActive, setIsActive] = useState(false);
     const [colorName, setColorName] = useState("");
+    const [currentColor, setCurrentColor] = useState("#fff")
 
     
     const toggleIsActive = () => {
@@ -18,7 +19,7 @@ export const ColorPickerFrame = (props) => {
         addColor({
             name: colorName,
             type: selected.toLowerCase(),
-            color: "#fff"
+            color: currentColor
         })
         hideColorPicker()
     }
@@ -35,7 +36,7 @@ export const ColorPickerFrame = (props) => {
 
     useEffect(() => {
         
-    }, [isActive, selected, colorName])
+    }, [isActive, selected, colorName, currentColor])
     
 
     return (
@@ -97,12 +98,13 @@ export const ColorPickerFrame = (props) => {
                     </div>
                 </div>
             </div>
-            <ColorPicker/>
+            <Colorpicker setCurrentColor={setCurrentColor}/>
             <div className="colorpicker-comp__add-button">
                 <button className="add-button add-button_colorpicker" onClick={() => {
                     submitColor()
                 }}>Добавить</button>
             </div>
+            
         </div>
     )
 }

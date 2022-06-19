@@ -4,7 +4,7 @@ import {ColorPickerContext} from "../context";
 
 
 const DataTableList = (props) => {
-    const {showColoPicker} = props;
+    const {showColorPicker} = props;
     const {dataColorList} = useContext(ColorPickerContext)
     let [dataColor, setDataColor] = useState(dataColorList)
 
@@ -60,7 +60,7 @@ const DataTableList = (props) => {
                 </table>
             </div>
             <div className="data-comp__add-button">
-                <button className="add-button" onClick={() => showColoPicker()}>Добавить цвет</button>
+                <button className="add-button" onClick={() => showColorPicker()}>Добавить цвет</button>
             </div>
         </div>
     )

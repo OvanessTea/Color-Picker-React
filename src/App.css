@@ -55,6 +55,7 @@ body {
     flex-direction: column;
     width: inherit;
     padding-top: 20px;
+    margin-bottom: 32px;
 }
 .data-comp__title {
     color: #fff;
@@ -85,7 +86,7 @@ tr > * {
 }
 .colorpicker-comp__add-button {
     position: absolute;
-    bottom: 32px;
+    bottom: 14px;
 }
 .add-button {
     width: 220px;
@@ -146,7 +147,6 @@ svg.delete_icon:hover rect {
 .nav-cotainer {
     display: flex;
     align-items: center;
-    margin-bottom: 25px;
     height: 146px;
     flex-direction: column;
     justify-content: space-between;
@@ -166,20 +166,20 @@ label {
     align-items: center;
     
 }
-label:not(:last-child) {
+.nav-cotainer__options label:first-child:not(.option) {
     margin-bottom: 17px;
 }
-label:not(:first-child) {
+.nav-cotainer__options label:not(:first-child) {
     align-items: flex-start;
 }
-label p{
+.nav-cotainer__options label p{
     margin-top: 10px;
     color: #A0A0A0;
     font-size: 12px;
     line-height: 20px;
     font-weight: 700;
 }
-label input {
+.nav-cotainer__options label input {
     background: #424242;
     color: #bfbfbf;
     height: 40px;
@@ -189,12 +189,13 @@ label input {
     border-radius: 6px;
 }
 
-label input::placeholder {
+.nav-cotainer__options label input::placeholder {
     color: #bfbfbf;
 }
 .label__select-box {
     padding-left: 105px;
 }
+
 .select-box {
     display: flex;
     width: 175px;
@@ -243,7 +244,7 @@ label input::placeholder {
     max-height: 162px;
     overflow-y: scroll;
     opacity: 1;
-    z-index: 2;
+    z-index: 15;
 }
 
 .select-box .options-container::-webkit-scrollbar {
@@ -268,107 +269,159 @@ label.option {
 .select-box label {
     cursor: pointer;
 }
+label.option {
+    margin-bottom: 0;
+}
 
 .radio {
     display: none;
 }
-
-
-*:focus {
-    outline: none;
-  }
-  
-  .colorPicker__container {
-    height: 380px;
-    width: 245px;
-    background: #424242;
-    
-    padding: 7px 5px 0;
-    border: 1px solid #5f5f5f;
-    border-radius: 5px;
-  }
-  :host, svg {
-    display: block;
-    
-  }
-  .pickerGradient {
-    pointer-events: none;
-  }
-  section, label {
+.colorpicker-snippet {
     display: flex;
-  }
-  section {
-    justify-content: space-between;
-    width: 200px;
-    margin-top: 10px;
-  }
-  section label {
-    border: 1px solid #5f5f5f;
-    border-radius: 3px;
-  }
-  section#hex label {
-    border: none;
-  }
-  section#usualColors {
-    width: 100%;
-    justify-content: start;
-    flex-wrap: wrap;
-    padding: 0px 10px;
-  }
-  section#usualColors div:not(:last-child) {
-    margin-right: 15px;
-    margin-bottom: 10px;
-  }
-  attr, input {
-    
-    color: #bdbdbd;
-    text-align: start;
-    font-size: 12px;
-    padding: 5px 0px 5px 8px;
-  }
-  attr {
-    width: 17px;
-  }
-  label:not(:last-child) {
-    margin-right: 18px;
-  }
+    padding: 7px 5px;
+    flex-direction: column;
+    width: 255px;
+    height: 380px;
+    background: #3C3C3C;
+    border: 1px solid #BDBDBD;
+    border-radius: 5px;
+    margin-bottom: 18px;
+}
+.color-preview {
+    display: flex;
+    height: 220px;
+    box-sizing: border-box;
+    margin-bottom: 7px;
+}
   
-  attr.hex_attr {
-    border: 1px solid #5f5f5f;
+#colorbox {
+    position: relative;
+    width: 215px;
+    height: 220px;
+    background-color: #00B9FF;
     border-radius: 3px;
-    width: 59px;
-    margin-right: 7px;
-  }
-  input.hex_attr {
-    border: 1px solid #5f5f5f;
-    border-radius: 3px;
-    background: inherit;
-    width: 80px;
-    margin-right: 5px;
-    padding-left: 7px;
-  }
-  [type=number] {
-    border: none;
+    overflow: hidden;
+    float: left;
+    border: 1px solid #5B5B5B;
+}
+
+.background {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+}
+
+.bg1 {
+    height: 220px;
+    width: 215px;
+    background: linear-gradient(to right, #fff 0%, rgba(255, 255, 255, 0) 100%);
+    z-index: 4;
+}
+
+.bg2 {
+    height: 220px;
+    width: 215px;
+    background: linear-gradient(to bottom, transparent 0%, #000 100%);
+    z-index: 5;
+}
+
+.pointer, .slider {
+    position: relative;
+    z-index: 10;
+}
+
+.shape {
+    position: absolute;
+}
+
+.s1 {
+    margin-left: -9px;
+    margin-top: -9px;
+    width: 12px;
+    height: 12px;
+    border: 3px solid #3f3844;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+.s2 {
+    margin-left: -6px;
+    margin-top: -6px;
+    width: 6px;
+    height: 6px;
+    border: 3px solid white;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+}
+
+#colorslider {
+    position: relative;
     width: 25px;
-    background: inherit;
-    text-align: end;
-    padding-right: 10px;
-  }
-  input[type=number]::-webkit-inner-spin-button, 
-  input[type=number]::-webkit-outer-spin-button { 
-      -webkit-appearance: none;
-      -moz-appearance: none;
-      appearance: none;
-      margin: 0; 
-  }
-  p {
-    font-size: 12px;
-    color: #bdbdbd;
-    margin: 5px 10px;
-  }
-  #currentColor, .exampleColor {
-    border-radius: 4px;
+    height: 220px;
+    border-radius: 2px;
+    overflow: visible;
+    float: left;
+    padding: 0 5px;
+}
+
+.bg {
+    width: 25px;
+    height: 220px;
+    background: linear-gradient(to bottom, red 0%, #ff0 17%, lime 33%, cyan 50%, blue 66%, #f0f 83%, red 100%);
+    border-radius: 3px;
+    z-index: 4;
+    border: 1px solid #5B5B5B;
+}
+
+.s3 {
+    width: 100%;
+    margin-left: -3px;
+    margin-top: -6px;
+    height: 3px;
+    border: 3px solid #3f3844;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+    z-index: 6;
+}
+
+#data {
+    width: 245px;
+    height: 220px;
+    float: right;
+    overflow: hidden;   
+    position: relative;
+}
+
+#current-color {
+    width: 25px;
     height: 25px;
-    width: 25px;
-    background: #fff;
-  }
+    background-color: red;
+    border-radius: 4px;
+    margin: -1px;
+    position: absolute;
+    top: 0;
+    right: 0;
+
+}
+
+.colorField {
+    width: calc(100% - 40px);
+    font-size: 16px;
+    font-family: helvetica;
+    font-weight: bold;
+    padding: 10px 20px;
+    float: left;
+}
+
+.colorLabel {
+    color: #a9a9a9; 
+    padding-right: 20px;
+}
+
+.colorInput {
+    width: 55px;
+    padding: 5px;
+}
+.color {
+    display: flex;
+}

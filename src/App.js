@@ -7,7 +7,7 @@ import { ContextProvider } from "./context";
 function App() {
   const [ showColorPickerFrame, setShowColorPickerFrame ] = useState(false);
 
-  const showColoPicker = () => {
+  const showColorPicker = () => {
     setShowColorPickerFrame(true);
   }
   const hideColorPicker = () => {
@@ -22,7 +22,7 @@ function App() {
   return (
     <div className="app">
       <ContextProvider>
-        <DataTableList showColoPicker={showColoPicker}/>
+        <DataTableList showColorPicker={showColorPicker}/>
         {showColorPickerFrame ? <ColorPickerFrame hideColorPicker={hideColorPicker}/> : null}
       </ContextProvider>
     </div>
