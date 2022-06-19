@@ -1,18 +1,30 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState, useEffect, useContext} from 'react';
 import {ColorPicker} from "./ColorPicker";
+import {ColorPickerContext} from "../context";
 
 export const ColorPickerFrame = (props) => {
-    const {hideColoPicker} = props;
+    const {hideColorPicker} = props;
+    const {addColor} = useContext(ColorPickerContext);
     const [selected, setSelected] = useState("Main");
     const [isActive, setIsActive] = useState(false);
-    const [name, setName] = useState("");
+    const [colorName, setColorName] = useState("");
 
+    
     const toggleIsActive = () => {
         setIsActive(!isActive);
     }
 
+    const submitColor = () => {
+        addColor({
+            name: colorName,
+            type: selected.toLowerCase(),
+            color: "#fff"
+        })
+        hideColorPicker()
+    }
+
     const changeName = (event) => {
-        setName(event.target.value)
+        setColorName(event.target.value)
     }
 
     const changeSelected = (event) => {
@@ -22,8 +34,8 @@ export const ColorPickerFrame = (props) => {
     }
 
     useEffect(() => {
-
-    }, [isActive, selected])
+        
+    }, [isActive, selected, colorName])
     
 
     return (
@@ -36,7 +48,7 @@ export const ColorPickerFrame = (props) => {
                     <div className='nav-cotainer__options'>
                         <label>
                             <p>Название цвета</p>
-                            <input type="text" placeholder="Введите название" value={name} onChange={changeName}/>
+                            <input type="text" placeholder="Введите название" value={colorName} onChange={changeName}/>
                         </label>
                         <label>
                             <p>Выберите тип</p>
@@ -69,10 +81,6 @@ export const ColorPickerFrame = (props) => {
                                             id="secondary" 
                                             value="Secondary" 
                                             name="color_type"
-                                            style={{ height: 40,
-                                                padding: "12px 11px",
-                                                cursor: "pointer"
-                                            }}
                                         />
                                         <label className="option" htmlFor="secondary">Secondary</label>
                                         <input 
@@ -91,7 +99,9 @@ export const ColorPickerFrame = (props) => {
             </div>
             <ColorPicker/>
             <div className="colorpicker-comp__add-button">
-                <button className="add-button add-button_colorpicker" onClick={() => hideColoPicker()}>Добавить</button>
+                <button className="add-button add-button_colorpicker" onClick={() => {
+                    submitColor()
+                }}>Добавить</button>
             </div>
         </div>
     )

@@ -10,7 +10,7 @@ function App() {
   const showColoPicker = () => {
     setShowColorPickerFrame(true);
   }
-  const hideColoPicker = () => {
+  const hideColorPicker = () => {
     setShowColorPickerFrame(false);
   }
 
@@ -23,7 +23,7 @@ function App() {
     <div className="app">
       <ContextProvider>
         <DataTableList showColoPicker={showColoPicker}/>
-        {showColorPickerFrame ? <ColorPickerFrame hideColoPicker={hideColoPicker}/> : null}
+        {showColorPickerFrame ? <ColorPickerFrame hideColorPicker={hideColorPicker}/> : null}
       </ContextProvider>
     </div>
   );
