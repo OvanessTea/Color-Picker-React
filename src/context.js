@@ -5,9 +5,9 @@ export const ColorPickerContext = createContext();
 
 const initialState = {
     dataColorList: [
-        {name: "Мятное утро", type: "base", color: "#86EAE9"},
-        {name: "Лавандовый пунш", type: "main", color: "#B8B2DD"},
-        {name: "Светло-коралловый", type: "main", color: "#FFBCAD"},
+        // {name: "Мятное утро", type: "base", color: "#86EAE9"},
+        // {name: "Лавандовый пунш", type: "main", color: "#B8B2DD"},
+        // {name: "Светло-коралловый", type: "main", color: "#FFBCAD"},
     ]
 };
 

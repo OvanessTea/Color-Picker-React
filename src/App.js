@@ -6,9 +6,11 @@ import { ContextProvider } from "./context";
 
 function App() {
   const [ showColorPickerFrame, setShowColorPickerFrame ] = useState(false);
+  const [updatedColor, setUpdatedColor] = useState([{name: "", type: "main", color: "#fff"}, null]);
 
   const showColorPicker = () => {
     setShowColorPickerFrame(true);
+    console.log(updatedColor)
   }
   const hideColorPicker = () => {
     setShowColorPickerFrame(false);
@@ -22,8 +24,11 @@ function App() {
   return (
     <div className="app">
       <ContextProvider>
-        <DataTableList showColorPicker={showColorPicker}/>
-        {showColorPickerFrame ? <ColorPickerFrame hideColorPicker={hideColorPicker}/> : null}
+        <DataTableList showColorPicker={showColorPicker} updatedColor={updatedColor} setUpdatedColor={setUpdatedColor}/>
+        {showColorPickerFrame ? <ColorPickerFrame 
+          hideColorPicker={hideColorPicker} 
+          updatedColor={updatedColor[0] ? updatedColor : null}
+        /> : null}
       </ContextProvider>
     </div>
   );

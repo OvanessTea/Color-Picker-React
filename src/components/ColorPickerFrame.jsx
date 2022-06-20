@@ -3,13 +3,16 @@ import {Colorpicker} from './color-picker'
 import {ColorPickerContext} from "../context";
 
 export const ColorPickerFrame = (props) => {
-    const {hideColorPicker} = props;
+    const {hideColorPicker, updatedColor} = props;
     const {addColor} = useContext(ColorPickerContext);
     const [selected, setSelected] = useState("Main");
     const [isActive, setIsActive] = useState(false);
     const [colorName, setColorName] = useState("");
     const [currentColor, setCurrentColor] = useState("#fff")
+    const [editableColor, setEditableColor] = useState([{name: "", type: "main", color: "#fff"}, null]);
 
+    
+    
     
     const toggleIsActive = () => {
         setIsActive(!isActive);
@@ -33,6 +36,10 @@ export const ColorPickerFrame = (props) => {
         setSelected(event.target.value)
         toggleIsActive()
     }
+
+    useEffect(() => {
+        setEditableColor(updatedColor)
+    }, [])
 
     useEffect(() => {
         
@@ -98,7 +105,7 @@ export const ColorPickerFrame = (props) => {
                     </div>
                 </div>
             </div>
-            <Colorpicker setCurrentColor={setCurrentColor}/>
+            <Colorpicker setCurrentColor={setCurrentColor} editableColor={editableColor[0].color}/>
             <div className="colorpicker-comp__add-button">
                 <button className="add-button add-button_colorpicker" onClick={() => {
                     submitColor()

@@ -390,6 +390,7 @@ label.option {
     float: right;
     overflow: hidden;   
     position: relative;
+    
 }
 
 #current-color {
@@ -405,23 +406,63 @@ label.option {
 }
 
 .colorField {
-    width: calc(100% - 40px);
-    font-size: 16px;
-    font-family: helvetica;
-    font-weight: bold;
-    padding: 10px 20px;
+    width: 215px;
+    font-size: 12px;
     float: left;
+    margin-bottom: 8px;
 }
 
+.color {
+    background: #3C3C3C;
+    border: 1px solid #4F4F4F;
+    height: 25px;
+}
 .colorLabel {
-    color: #a9a9a9; 
-    padding-right: 20px;
+    width: 25px;
+    text-align: center;
 }
 
 .colorInput {
     width: 55px;
     padding: 5px;
 }
-.color {
+.color, .color_hex {
     display: flex;
+    align-items: center;
+    font-size: 12px;
+    color: #bdbdbd;
+    
+}
+.color_hex p {
+    margin: 5px 10px;
+}
+.color_hex label.hex,
+.color_hex label.hex_code {
+    padding: 5px 0 5px 8px;
+    border: 1px solid #5F5F5F;
+    width: 68px;
+    margin-right: 7px;
+}
+.color_hex label.hex_code {
+    width: 90px;
+    margin-right: 0px;
+}
+.colorField.rgb,
+.colorField.hsl {
+    display: flex;
+}
+
+:where(.colorField.rgb, .colorField.hsl)
+.color {
+    min-width: 69px;
+    margin-right: 19px;
+    padding: 0 10px;
+}
+:where(.colorField.rgb, .colorField.hsl)
+.color.colorLabel {
+    margin-right: 15px;
+}
+.colorText {
+    width: 21px;
+    left: 25%;
 }

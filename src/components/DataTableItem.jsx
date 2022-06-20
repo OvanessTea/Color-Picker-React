@@ -1,8 +1,9 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect, useState} from 'react';
 import {ColorPickerContext} from "../context";
 
 const DataTableItem = (props) => {
-    const {name, type, color, item, index} = props;
+    const {name, type, color, item, index, updateColor, showColorPicker} = props;
+    
 
     const {removeColor} = useContext(ColorPickerContext)
     return (
@@ -12,7 +13,10 @@ const DataTableItem = (props) => {
             <td className='item__colomn'><p>{type}</p></td>
             <td className='item__colomn'><p>{color}</p></td>
             <td className='item__colomn'>
-                <button className='_icon'>
+                <button className='_icon' onClick={() => {
+                    updateColor(item, index)
+                    showColorPicker()
+                }}>
                     <svg width='20' height='20' viewBox='0 0 20 20' fill='none' xmlns='http://www.w3.org/2000/svg' className='edit_icon'>
                         <path d='M12.8701 3.60447C13.0429 3.41283 13.2481 3.26081 13.4739 3.1571C13.6997 3.05338 13.9417 3 14.1861 3C14.4306 3 14.6726
                                         3.05338 14.8984 3.1571C15.1242 3.26081 15.3293 3.41283 15.5022 3.60447C15.675 3.79611 15.8121 4.02362 15.9056 4.27401C15.9991 4.5244 16.0473

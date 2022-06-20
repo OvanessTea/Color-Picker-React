@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 export class Colorpicker extends React.Component {
   constructor(args) {
@@ -12,9 +12,9 @@ export class Colorpicker extends React.Component {
         top: 0
       },
     };
-    
+    this.updateCheck = true
     this.hex_value = '#b66a5b'
-    
+
     this.sliderGradient = [
       [0,     [255, 0, 0]],
       [36.6,  [255, 255, 0]],
@@ -32,6 +32,11 @@ export class Colorpicker extends React.Component {
     this.bound_handleMouseUpSlider = this.handleMouseUpSlider.bind(this);
 
     this.setColor();
+  }
+
+  componentDidMount() {
+    this.colorbox_vertical_color = this.props.editableColor ? this.props.editableColor : '#b66a5b'
+    console.log(this.props.editableColor)
   }
 
   setPointerCoordinates(x, y) {
@@ -105,6 +110,7 @@ export class Colorpicker extends React.Component {
     var boxWidth = 220;
     var ratio = pointerPosition / boxWidth;
     var rgbArray = this.calculateRGBColor(firstColor, secondColor, ratio);
+    console.log(rgbArray)
     this.setColorboxHorizontalColor(rgbArray);
   }
 
@@ -335,39 +341,39 @@ export class Colorpicker extends React.Component {
         </div>
         <div id="data">
           <div className="colorField">
-            <div className="color">
+            <div className="color_hex">
               <p>Color</p>
-              <label className="colorLabel">#</label>
-              <label>{this.hex.toUpperCase()}</label>
+              <label className="colorLabel hex">HEX</label>
+              <label className="hex_code">{this.hex.toUpperCase()}</label>
+              <div id="current-color" style={this.colorpicker_style} />
             </div>
-          </div>
-          <div id="current-color" style={this.colorpicker_style} /> 
-          <div className="colorField">
+          </div> 
+          <div className="colorField rgb">
             <div className="color">
               <label className="colorLabel">R</label>
-              <label>{this.colorbox_vertical_color[0]}</label>
+              <label className="colorText">{this.colorbox_vertical_color[0]}</label>
             </div>
             <div className="color">
               <label className="colorLabel">G</label>
-              <label>{this.colorbox_vertical_color[1]}</label>
+              <label className="colorText">{this.colorbox_vertical_color[1]}</label>
             </div>
             <div className="color">
               <label className="colorLabel">B</label>
-              <label>{this.colorbox_vertical_color[2]}</label>
+              <label className="colorText">{this.colorbox_vertical_color[2]}</label>
             </div>
           </div>
-          <div className="colorField">
+          <div className="colorField hsl">
             <div className="color">
               <label className="colorLabel">H</label>
-              <label>{this.hsl[0]}</label>
+              <label className="colorText">{this.hsl[0]}</label>
             </div>
             <div className="color">
               <label className="colorLabel">S</label>
-              <label>{this.hsl[1]}</label>
+              <label className="colorText">{this.hsl[1]}</label>
             </div>
             <div className="color">
               <label className="colorLabel">L</label>
-              <label>{this.hsl[2]}</label>
+              <label className="colorText">{this.hsl[2]}</label>
             </div>
           </div>
         </div>

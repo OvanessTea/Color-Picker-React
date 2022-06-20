@@ -4,20 +4,37 @@ import {ColorPickerContext} from "../context";
 
 
 const DataTableList = (props) => {
-    const {showColorPicker} = props;
-    const {dataColorList} = useContext(ColorPickerContext)
-    let [dataColor, setDataColor] = useState(dataColorList)
+    const {showColorPicker, updatedColor, setUpdatedColor} = props;
+    const {dataColorList, addColor} = useContext(ColorPickerContext);
+    let [localColorList, setLocalColorList] = useState([]);
+
+
 
     const saveToLocalStorage = () => {
-        localStorage.setItem('dataColorList', dataColorList);
+        localStorage.setItem('dataColorList', JSON.stringify(dataColorList));
+    }
+    const updateColor = (item, index) => {
+        setUpdatedColor([item, index])
     }
 
     useEffect(() => {
-        setDataColor(localStorage.getItem('dataColorList'))
+        localColorList.map(item => {
+            addColor({
+                name: item.name,
+                type: item.type,
+                color: item.color
+            })
+        })
+
+    }, [localColorList])
+    
+
+    useEffect(() => {
+        setLocalColorList(JSON.parse(localStorage.getItem('dataColorList')))
     }, [])
 
     useEffect(() => {
-    }, [dataColor, dataColorList])
+    }, [dataColorList, updatedColor])
     
     return (
         <div className='data-comp'>
@@ -53,14 +70,27 @@ const DataTableList = (props) => {
                         </tr>
                         {dataColorList && 
                             dataColorList.map((item, index) => (
-                                <DataTableItem key={index} {...item} item={item} index={index}/>
+                                <DataTableItem 
+                                    key={index} 
+                                    {...item} 
+                                    item={item} 
+                                    index={index}
+
+                                    updateColor={updateColor} 
+                                    showColorPicker={showColorPicker}
+                                />
                             ))
                         }
                     </tbody>
                 </table>
             </div>
             <div className="data-comp__add-button">
-                <button className="add-button" onClick={() => showColorPicker()}>Добавить цвет</button>
+                <button className="add-button" 
+                    onClick={() => {
+                        setUpdatedColor([{name: "", type: "main", color: "#fff"}, null])
+                        showColorPicker()
+                    }
+                }>Добавить цвет</button>
             </div>
         </div>
     )
