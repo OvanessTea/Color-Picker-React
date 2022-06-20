@@ -35,15 +35,21 @@ export class Colorpicker extends React.Component {
   }
 
   componentDidMount() {
-    this.colorbox_vertical_color = this.props.editableColor ? this.props.editableColor : '#b66a5b'
-    console.log(this.props.editableColor)
+    this.hex = this.props.editableColor ? this.props.editableColor : '#b66a5b'
+    this.slider_color = this.props.editableColor ? this.props.editableColor : '#b66a5b'
+    // this.colorbox_horizontal_color = this.props.editableColor ? this.props.editableColor : '#b66a5b'
+    // this.colorbox_vertical_color = this.props.editableColor ? this.props.editableColor : '#b66a5b'
+    this.props.setCurrentColor(this.props.editableColor);
+    this.colorpicker_style = {
+      backgroundColor: this.props.editableColor ? this.props.editableColor : '#b66a5b'
+    }
   }
 
   setPointerCoordinates(x, y) {
     this.setState({
       pointer_style: {
-        left: x - 829,
-        top: y -58
+        left: x,
+        top: y - 58
       }
     });
   }
@@ -51,7 +57,7 @@ export class Colorpicker extends React.Component {
   setSliderCoordinate(y) {
     this.setState({
       slider_style: {
-        top: y - 58
+        top: y - 58,
       }
     });
   }
@@ -110,7 +116,6 @@ export class Colorpicker extends React.Component {
     var boxWidth = 220;
     var ratio = pointerPosition / boxWidth;
     var rgbArray = this.calculateRGBColor(firstColor, secondColor, ratio);
-    console.log(rgbArray)
     this.setColorboxHorizontalColor(rgbArray);
   }
 
@@ -223,7 +228,8 @@ export class Colorpicker extends React.Component {
   }
 
   handleMouseDownColorbox(e) {
-    var x = e.clientX - e.currentTarget.offsetLeft;
+    var x = 215 - Math.abs((e.clientX + 118) - window.innerWidth);
+    // var y = 220 - Math.abs((e.clientY + 110) - window.innerHeight);
     var y = e.clientY - e.currentTarget.offsetTop;
     this.setPointerCoordinates(x, y);
 
@@ -258,7 +264,8 @@ export class Colorpicker extends React.Component {
   }
 
   handleMouseMoveColorbox(e) {
-    var x = e.clientX - e.currentTarget.offsetLeft;
+    var x = 215 - Math.abs((e.clientX + 118) - window.innerWidth) ;
+    // var y = 220 - Math.abs((e.clientY + 110) - window.innerHeight);
     var y = e.clientY - e.currentTarget.offsetTop;
     this.setPointerCoordinates(x, y);
 

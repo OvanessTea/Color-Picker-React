@@ -10,7 +10,6 @@ function App() {
 
   const showColorPicker = () => {
     setShowColorPickerFrame(true);
-    console.log(updatedColor)
   }
   const hideColorPicker = () => {
     setShowColorPickerFrame(false);

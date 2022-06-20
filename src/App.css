@@ -203,7 +203,7 @@ label {
 }
 
 .select-box .options-container {
-    margin-top: -57px;
+    margin-top: -40px;
     background: #424242;
     color: #bfbfbf;
     max-height: 0;
@@ -255,7 +255,7 @@ label {
 .option,
 .selected {
     height: 40px;
-    padding: 12px 11px;
+    padding: 8px 12px;
     cursor: pointer;
 }
 label.option {
@@ -374,8 +374,7 @@ label.option {
 }
 
 .s3 {
-    width: 100%;
-    margin-left: -3px;
+    width: 160%;
     margin-top: -6px;
     height: 3px;
     border: 3px solid #3f3844;

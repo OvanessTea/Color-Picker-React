@@ -12,6 +12,11 @@ export function reducer(state, { type, payload }) {
                     (color) => color !== payload
                 ),
             };
+        case "UPDATE_COLOR":
+        return {
+            ...state,
+            dataColorList: [state.dataColorList[payload.index] = payload.color],
+        };
         default:
             return state;
     }
