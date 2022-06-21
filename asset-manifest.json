@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/Color-Picker-React/static/css/main.bf2ab48f.css",
-    "main.js": "/Color-Picker-React/static/js/main.43f9c5c8.js",
+    "main.js": "/Color-Picker-React/static/js/main.324be19a.js",
     "index.html": "/Color-Picker-React/index.html",
     "static/media/Dropdown_arrow_icon.svg": "/Color-Picker-React/static/media/Dropdown_arrow_icon.572ef4798507b92a24b5.svg",
     "main.bf2ab48f.css.map": "/Color-Picker-React/static/css/main.bf2ab48f.css.map",
-    "main.43f9c5c8.js.map": "/Color-Picker-React/static/js/main.43f9c5c8.js.map"
+    "main.324be19a.js.map": "/Color-Picker-React/static/js/main.324be19a.js.map"
   },
   "entrypoints": [
     "static/css/main.bf2ab48f.css",
-    "static/js/main.43f9c5c8.js"
+    "static/js/main.324be19a.js"
   ]
 }
