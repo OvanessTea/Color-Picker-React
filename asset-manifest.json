@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/Color-Picker-React/static/css/main.978ee52e.css",
+    "main.js": "/Color-Picker-React/static/js/main.caf6295d.js",
+    "index.html": "/Color-Picker-React/index.html",
+    "static/media/Dropdown_arrow_icon.svg": "/Color-Picker-React/static/media/Dropdown_arrow_icon.572ef4798507b92a24b5.svg",
+    "main.978ee52e.css.map": "/Color-Picker-React/static/css/main.978ee52e.css.map",
+    "main.caf6295d.js.map": "/Color-Picker-React/static/js/main.caf6295d.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.978ee52e.css",
+    "static/js/main.caf6295d.js"
+  ]
+}
