@@ -22,6 +22,9 @@ export const ContextProvider = ({ children }) => {
     value.updateColor_context = (color, index) => {
         dispatch({ type: "UPDATE_COLOR", payload: {color: color, index: index} });
     };
+    value.changeOrder = (array) => {
+        dispatch({ type: "CHANGE_ORDER", payload: {array: array} });
+    };
 
     return (
         <ColorPickerContext.Provider value={value}>

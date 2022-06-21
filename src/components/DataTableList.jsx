@@ -1,12 +1,13 @@
 import React, {useState, useEffect, useContext} from 'react';
 import {DataTableItem} from "./DataTableItem";
 import {ColorPickerContext} from "../context";
-
+import {Reorder} from 'framer-motion';
 
 const DataTableList = (props) => {
-    const {showColorPicker, updatedColor, setUpdatedColor} = props;
-    const {dataColorList, addColor} = useContext(ColorPickerContext);
+    const {showColorPicker, updatedColor, setUpdatedColor, showColorPickerFrame} = props;
+    const {dataColorList, addColor, changeOrder} = useContext(ColorPickerContext);
     let [localColorList, setLocalColorList] = useState([]);
+    let [newOrder, setNewOrder] = useState([]);
 
 
 
@@ -32,13 +33,15 @@ const DataTableList = (props) => {
     useEffect(() => {
         setLocalColorList(JSON.parse(localStorage.getItem('dataColorList')))
     }, [])
-
+    useEffect(() => {
+        return changeOrder(newOrder)
+    }, [newOrder])
     useEffect(() => {
         
     }, [dataColorList, updatedColor])
     
     return (
-        <div className='data-comp'>
+            <div className={showColorPickerFrame ? 'data-comp active' : 'data-comp'}>
             <div className="data-comp__nav">
                 <div className="data-comp__title">
                     <h2>Таблица цветов</h2>
@@ -60,7 +63,7 @@ const DataTableList = (props) => {
             </div>
             <div className="data-comp__table">
                 <table border="1">
-                    <tbody>
+                    <thead>
                         <tr>
                             <th width="90px">Цвет</th>
                             <th width="134px">Название</th>
@@ -69,6 +72,10 @@ const DataTableList = (props) => {
                             <th width="115px">Изменить</th>
                             <th width="115px">Удалить</th>
                         </tr>
+                    </thead>
+                    <Reorder.Group
+                        as={"tbody"} axys="y" values={dataColorList} onReorder={setNewOrder}
+                    >
                         {dataColorList && 
                             dataColorList.map((item, index) => (
                                 <DataTableItem 
@@ -81,7 +88,7 @@ const DataTableList = (props) => {
                                 />
                             ))
                         }
-                    </tbody>
+                    </Reorder.Group>
                 </table>
             </div>
             <div className="data-comp__add-button">

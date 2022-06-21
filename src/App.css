@@ -15,7 +15,7 @@ body {
 .app {
     display: flex;
     justify-content: space-between;
-    align-items: baseline;
+    align-items: start;
     flex-flow: wrap;
 }
 
@@ -31,6 +31,9 @@ body {
     align-items: center;
     position: relative;
     padding-bottom: 97px;
+}
+.data-comp.active {
+    pointer-events: none;
 }
 .colorpicker-comp {
     background-color: #313131;
@@ -464,4 +467,41 @@ label.option {
 .colorText {
     width: 21px;
     left: 25%;
+}
+
+@media (max-width: 1100px) {
+    .app {
+        position: relative;
+    }
+    .colorpicker-comp {
+        position: absolute;
+        left: 179px;
+    }
+    .data-comp {
+        opacity: 1;
+        transition: all 0.4s;
+    }
+    .data-comp.active {
+        opacity: 0.3;
+        transition: all 0.4s;
+    }  
+}
+@media (max-width: 800px) {
+    .colorpicker-comp {
+        left: calc((100% - 320px) / 2);
+    }
+    .data-comp__nav {
+        margin-left: 30%;
+    }
+    .data-comp__title {
+        margin-right: 20vw;
+    }
+}
+@media (max-width: 750px) {
+    .data-comp__nav {
+        margin-left: 25%;
+    }
+    .data-comp__title {
+        margin-right: 20vw;
+    }
 }

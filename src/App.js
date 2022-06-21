@@ -24,7 +24,7 @@ function App() {
   return (
     <div className="app">
       <ContextProvider>
-        <DataTableList showColorPicker={showColorPicker} updatedColor={updatedColor} setUpdatedColor={setUpdatedColor}/>
+        <DataTableList showColorPicker={showColorPicker} updatedColor={updatedColor} setUpdatedColor={setUpdatedColor} showColorPickerFrame={showColorPickerFrame}/>
         {showColorPickerFrame ? <ColorPickerFrame 
           hideColorPicker={hideColorPicker} 
           updatedColor={updatedColor[0] ? updatedColor : null}

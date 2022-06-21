@@ -20,6 +20,12 @@ export function reducer(state, { type, payload }) {
                 )
                 // dataColorList: [...state.dataColorList, state.dataColorList[payload.index] = payload.color],
             };
+        case "CHANGE_ORDER":
+            return {
+                ...state,
+                dataColorList: payload.array
+                // dataColorList: [...state.dataColorList, state.dataColorList[payload.index] = payload.color],
+            };
         default:
             return state;
     }

@@ -37,8 +37,6 @@ export class Colorpicker extends React.Component {
   componentDidMount() {
     this.hex = this.props.updatedColor ? this.props.updatedColor : '#b66a5b'
     this.slider_color = this.props.updatedColor ? this.props.updatedColor : '#b66a5b'
-    // this.colorbox_horizontal_color = this.props.editableColor ? this.props.editableColor : '#b66a5b'
-    // this.colorbox_vertical_color = this.props.editableColor ? this.props.editableColor : '#b66a5b'
     this.props.setCurrentColor(this.props.updatedColor);
     this.colorpicker_style = {
       backgroundColor: this.props.updatedColor ? this.props.updatedColor : '#b66a5b'
@@ -49,7 +47,7 @@ export class Colorpicker extends React.Component {
     this.setState({
       pointer_style: {
         left: x,
-        top: y - 58
+        top: y - 50
       }
     });
   }
@@ -57,7 +55,7 @@ export class Colorpicker extends React.Component {
   setSliderCoordinate(y) {
     this.setState({
       slider_style: {
-        top: y - 58,
+        top: y - 50,
       }
     });
   }
@@ -228,9 +226,14 @@ export class Colorpicker extends React.Component {
   }
 
   handleMouseDownColorbox(e) {
-    var x = 215 - Math.abs((e.clientX + 118) - window.innerWidth);
-    // var y = 220 - Math.abs((e.clientY + 110) - window.innerHeight);
+    var x = 215 - Math.abs((e.clientX + 118) - window.innerWidth) ;
     var y = e.clientY - e.currentTarget.offsetTop;
+    if (window.innerWidth < 1100) {
+      x = e.clientX - e.currentTarget.offsetLeft - 228;
+    }
+    if (window.innerWidth < 800) {
+      var x = e.clientX - (window.innerWidth - 250) / 2 ;
+    }
     this.setPointerCoordinates(x, y);
 
     this.setColor();
@@ -265,8 +268,14 @@ export class Colorpicker extends React.Component {
 
   handleMouseMoveColorbox(e) {
     var x = 215 - Math.abs((e.clientX + 118) - window.innerWidth) ;
-    // var y = 220 - Math.abs((e.clientY + 110) - window.innerHeight);
     var y = e.clientY - e.currentTarget.offsetTop;
+    if (window.innerWidth < 1100) {
+      x = e.clientX - e.currentTarget.offsetLeft - 228;
+    }
+    if (window.innerWidth < 800) {
+      var x = e.clientX - (window.innerWidth - 250) / 2 ;
+    }
+
     this.setPointerCoordinates(x, y);
 
     this.setColor();
