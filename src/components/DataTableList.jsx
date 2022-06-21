@@ -6,7 +6,7 @@ import {Reorder} from 'framer-motion';
 const DataTableList = (props) => {
     const {showColorPicker, updatedColor, setUpdatedColor, showColorPickerFrame} = props;
     const {dataColorList, addColor, changeOrder} = useContext(ColorPickerContext);
-    let [localColorList, setLocalColorList] = useState([]);
+    let [localColorList, setLocalColorList] = useState([{name: '1', type: 'main', color: '#ECD5D5'}, {name: '2', type: 'primary', color: '#170303'}]);
     let [newOrder, setNewOrder] = useState([]);
 
 
