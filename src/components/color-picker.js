@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React from "react";
 
 export class Colorpicker extends React.Component {
   constructor(args) {
@@ -232,7 +232,7 @@ export class Colorpicker extends React.Component {
       x = e.clientX - e.currentTarget.offsetLeft - 228;
     }
     if (window.innerWidth < 800) {
-      var x = e.clientX - (window.innerWidth - 250) / 2 ;
+      x = e.clientX - (window.innerWidth - 250) / 2 ;
     }
     this.setPointerCoordinates(x, y);
 
@@ -273,7 +273,7 @@ export class Colorpicker extends React.Component {
       x = e.clientX - e.currentTarget.offsetLeft - 228;
     }
     if (window.innerWidth < 800) {
-      var x = e.clientX - (window.innerWidth - 250) / 2 ;
+      x = e.clientX - (window.innerWidth - 250) / 2 ;
     }
 
     this.setPointerCoordinates(x, y);

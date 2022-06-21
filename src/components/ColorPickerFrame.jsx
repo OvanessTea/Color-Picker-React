@@ -4,12 +4,11 @@ import {ColorPickerContext} from "../context";
 
 export const ColorPickerFrame = (props) => {
     const {hideColorPicker, updatedColor} = props;
-    const {addColor, updateColor_context, dataColorList} = useContext(ColorPickerContext);
+    const {addColor, updateColor_context} = useContext(ColorPickerContext);
     const [selected, setSelected] = useState("Main");
     const [isActive, setIsActive] = useState(false);
     const [colorName, setColorName] = useState("");
     const [currentColor, setCurrentColor] = useState("#fff");
-    const [editableColor, setEditableColor] = useState([{name: "", type: "main", color: "#fff"}, null]);
     const [isColorChanging, setIsColorChanging] = useState(false);
 
     
@@ -23,14 +22,12 @@ export const ColorPickerFrame = (props) => {
         if (isColorChanging) {
             updateColor_context({name: colorName, type: selected.toLowerCase(), color: currentColor.toUpperCase()}, updatedColor[1])
             setIsColorChanging(false)
-            // console.log({name: colorName, type: selected, color: currentColor})
         } else {
             addColor({
                 name: colorName,
                 type: selected.toLowerCase(),
                 color: currentColor.toUpperCase()
             })
-            // console.log({name: colorName, type: selected, color: currentColor}) 
         }
         hideColorPicker()
     }
@@ -45,10 +42,10 @@ export const ColorPickerFrame = (props) => {
     }
 
     useEffect(() => {
-        setEditableColor(updatedColor)
         setColorName(updatedColor[1] !== null ? updatedColor[0].name : "")
         setSelected(updatedColor[1] !== null ? updatedColor[0].type.charAt(0).toUpperCase() + updatedColor[0].type.slice(1) : "Main")
         setIsColorChanging(updatedColor[1] !== null ? true: false)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
 
     useEffect(() => {

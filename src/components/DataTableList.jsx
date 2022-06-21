@@ -19,6 +19,7 @@ const DataTableList = (props) => {
     }
 
     useEffect(() => {
+        // eslint-disable-next-line array-callback-return
         localColorList.map(item => {
             addColor({
                 name: item.name,
@@ -26,18 +27,20 @@ const DataTableList = (props) => {
                 color: item.color
             })
         })
-
+// eslint-disable-next-line react-hooks/exhaustive-deps
     }, [localColorList])
     
 
     useEffect(() => {
         setLocalColorList(JSON.parse(localStorage.getItem('dataColorList')))
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [])
     useEffect(() => {
         return changeOrder(newOrder)
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [newOrder])
     useEffect(() => {
-        
+        // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [dataColorList, updatedColor])
     
     return (
