@@ -226,9 +226,9 @@ export class Colorpicker extends React.Component {
   }
 
   handleMouseDownColorbox(e) {
-    var x = 215 - Math.abs((e.clientX + 118) - window.innerWidth) ;
+    var x = e.clientX - e.currentTarget.offsetLeft - 790;
     var y = e.clientY - e.currentTarget.offsetTop;
-    if (window.innerWidth < 1100) {
+    if (window.innerWidth < 1160) {
       x = e.clientX - e.currentTarget.offsetLeft - 228;
     }
     if (window.innerWidth < 800) {
@@ -267,9 +267,9 @@ export class Colorpicker extends React.Component {
   }
 
   handleMouseMoveColorbox(e) {
-    var x = 215 - Math.abs((e.clientX + 118) - window.innerWidth) ;
+    var x = e.clientX - e.currentTarget.offsetLeft - 790;
     var y = e.clientY - e.currentTarget.offsetTop;
-    if (window.innerWidth < 1100) {
+    if (window.innerWidth < 1160) {
       x = e.clientX - e.currentTarget.offsetLeft - 228;
     }
     if (window.innerWidth < 800) {

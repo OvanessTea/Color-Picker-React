@@ -13,6 +13,7 @@ body {
     background-color: #E5E5E5;
 }
 .app {
+    max-width: 1060px;
     display: flex;
     justify-content: space-between;
     align-items: start;
@@ -469,7 +470,7 @@ label.option {
     left: 25%;
 }
 
-@media (max-width: 1100px) {
+@media (max-width: 1160px) {
     .app {
         position: relative;
     }
@@ -503,5 +504,36 @@ label.option {
     }
     .data-comp__title {
         margin-right: 20vw;
+    }
+    .color_div {
+        margin-left: 20px;
+    }
+}
+@media (max-width: 612px) {
+    .data-comp__title h2{
+        font-size: 17px;
+    }
+    th {
+        font-size: 17px;
+    }
+    td > ._icon {
+        margin-left: 35px;
+    }
+    .color_div {
+        margin-left: 14px;
+    }
+
+}
+@media (max-width: 550px) {
+    body {
+        padding: 20px;
+    }
+}
+@media (max-width: 425px) {
+    body {
+        padding: 0px;
+    }
+    th {
+        font-size: 16px;
     }
 }
