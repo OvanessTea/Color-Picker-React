@@ -20,7 +20,7 @@ const DataTableList = (props) => {
 
     useEffect(() => {
         // eslint-disable-next-line array-callback-return
-        localColorList.map(item => {
+        localColorList && localColorList.map(item => {
             addColor({
                 name: item.name,
                 type: item.type,
