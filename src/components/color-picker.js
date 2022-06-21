@@ -35,13 +35,13 @@ export class Colorpicker extends React.Component {
   }
 
   componentDidMount() {
-    this.hex = this.props.editableColor ? this.props.editableColor : '#b66a5b'
-    this.slider_color = this.props.editableColor ? this.props.editableColor : '#b66a5b'
+    this.hex = this.props.updatedColor ? this.props.updatedColor : '#b66a5b'
+    this.slider_color = this.props.updatedColor ? this.props.updatedColor : '#b66a5b'
     // this.colorbox_horizontal_color = this.props.editableColor ? this.props.editableColor : '#b66a5b'
     // this.colorbox_vertical_color = this.props.editableColor ? this.props.editableColor : '#b66a5b'
-    this.props.setCurrentColor(this.props.editableColor);
+    this.props.setCurrentColor(this.props.updatedColor);
     this.colorpicker_style = {
-      backgroundColor: this.props.editableColor ? this.props.editableColor : '#b66a5b'
+      backgroundColor: this.props.updatedColor ? this.props.updatedColor : '#b66a5b'
     }
   }
 

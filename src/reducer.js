@@ -13,10 +13,13 @@ export function reducer(state, { type, payload }) {
                 ),
             };
         case "UPDATE_COLOR":
-        return {
-            ...state,
-            dataColorList: [state.dataColorList[payload.index] = payload.color],
-        };
+            return {
+                ...state,
+                dataColorList: state.dataColorList.map(item => item === state.dataColorList[payload.index] ?
+                    item = payload.color : item
+                )
+                // dataColorList: [...state.dataColorList, state.dataColorList[payload.index] = payload.color],
+            };
         default:
             return state;
     }

@@ -34,6 +34,7 @@ const DataTableList = (props) => {
     }, [])
 
     useEffect(() => {
+        
     }, [dataColorList, updatedColor])
     
     return (
@@ -75,7 +76,6 @@ const DataTableList = (props) => {
                                     {...item} 
                                     item={item} 
                                     index={index}
-
                                     updateColor={updateColor} 
                                     showColorPicker={showColorPicker}
                                 />

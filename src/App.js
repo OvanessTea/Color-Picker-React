@@ -7,6 +7,7 @@ import { ContextProvider } from "./context";
 function App() {
   const [ showColorPickerFrame, setShowColorPickerFrame ] = useState(false);
   const [updatedColor, setUpdatedColor] = useState([{name: "", type: "main", color: "#fff"}, null]);
+  
 
   const showColorPicker = () => {
     setShowColorPickerFrame(true);
